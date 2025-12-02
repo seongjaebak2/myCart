@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../../contexts/UserContext";
 import CartContext from "../../contexts/CartContext";
 import { checkoutAPI } from "../../services/orderServices";
+import config from "../../config.json";
 
 export default function CartPage() {
   const [subTotal, setSubTotal] = useState(0); //제품*가격*갯수 합계
@@ -36,7 +37,7 @@ export default function CartPage() {
     <section className="align_center cart_page">
       <div className="align_center user_info">
         <img
-          src={`http://10.100.105.3:5000/profile/${user?.profilePic}`}
+          src={`${config.backendURL}/profile/${user?.profilePic}`}
           alt="user profile"
         />
         <div>

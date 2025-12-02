@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../../contexts/CartContext";
 import UserContext from "../../contexts/UserContext";
+import config from "../../config.json";
 
 // 상품 카드 컴포넌트
 export default function ProductCard({ product }) {
@@ -15,7 +16,7 @@ export default function ProductCard({ product }) {
       <div className="product_image">
         <NavLink to={`/product/${product?._id}`}>
           <img
-            src={`http://10.100.105.3:5000/products/${product?.images[0]}`}
+            src={`${config.backendURL}/products/${product?.images[0]}`}
             alt="product image"
           />
         </NavLink>

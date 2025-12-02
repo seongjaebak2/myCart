@@ -1,5 +1,6 @@
 import axios from "axios";
+import config from "../config.json";
 // Axios 객체 생성과 기본설정
 export default axios.create({
-  baseURL: "http://10.100.105.3:5000/api",
+  baseURL: `${config.backendURL}/api`,
 });

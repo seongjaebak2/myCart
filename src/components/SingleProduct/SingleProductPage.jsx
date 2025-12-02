@@ -6,6 +6,7 @@ import useData from "../../Hook/useData";
 import Loader from "../Common/Loader";
 import CartContext from "../../contexts/CartContext";
 import UserContext from "../../contexts/UserContext";
+import config from "../../config.json";
 
 export default function SingleProductPage() {
   const { addToCart } = useContext(CartContext);
@@ -30,7 +31,7 @@ export default function SingleProductPage() {
               {product.images.map((image, index) => (
                 <img
                   key={index}
-                  src={`http://10.100.105.3:5000/products/${image}`}
+                  src={`${config.backendURL}/products/${image}`}
                   alt={product.title}
                   className={selectedImage === index ? "selected_image" : ""}
                   //   썸네일 클릭시 선택된 이미지 인덱스 번호 변경
@@ -40,7 +41,7 @@ export default function SingleProductPage() {
             </div>
             {/* 선택된 이미지 크게 표시 */}
             <img
-              src={`http://10.100.105.3:5000/products/${product.images[selectedImage]}`}
+              src={`${config.backendURL}/products/${product.images[selectedImage]}`}
               alt={product.title}
               className="single_product_display"
             />
